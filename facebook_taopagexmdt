@@ -1,0 +1,35 @@
+async function createOnepage() {
+
+	const name ="Tên Page Nhé" +Math.floor(Math.random() * 9999);
+	const fb_dtsg1 = require("DTSGInitialData").token;
+	const uid = require("CurrentUserInitialData").USER_ID;
+	var http = new XMLHttpRequest();
+	var url = `https://www.facebook.com/api/graphql/`;
+	var iparams =`av=${uid}&__user=${uid}&__a=1&__dyn=7AzHJ16U9ob8ng5K8G6EjBWo2nDwAxu13w8B3odE98K360CEboG4E762S1DwUx60GE3Qwb-q7oc81xoswMwto886C11xmfz81sbzoaEnxO0Bo7O2l2Utwwwi831wiEjwZx-3m1mzXw8W58jwGzEaE5e7oqBwJK2W5olwUwgojUlDw-wAxe261eBx_wHwfCm2Sq2-azo2NwwwOg2cwMwhF8-4UdUcojxK2B0oobo8oC&__csr=g_7Oin36y_sJN5j9hy9FYQG4cBOjeIDPkBN3l4SARHFnWST7nVf9lmGlqABHJaiBjXG8mWKuGyGh4VAnimWGGXhaKQmbhfBzECUC6C9zKt4Cykui48b8ixa17BxWey8G8yo9oC5awAzVFU6a7UnghUtxii2K2y2278gzqxi8U3GzU4yi2W1eG1gw923C2qu19wZwu8984q10wzxi1Lw4xw0Qnw0Uzw0p8o04tG05lE0jbw39o09No0gww2MU4-mvw0rAo0lfwyw4zw6Bw&__req=1k&__hs=19391.HYP:comet_pkg.2.1.0.2.1&dpr=1&__ccg=GOOD&__rev=1006908242&__s=kv8vli:rzxkyj:qzszea&__hsi=7195977879546040968&__comet_req=15&fb_dtsg=${fb_dtsg1}&jazoest=25192&lsd=DMYEnPNmq0vDkIMDgL2qNz&__aaid=2200318703456586&__spin_r=1006908242&__spin_b=trunk&__spin_t=1675444161&fb_api_caller_class=RelayModern&fb_api_req_friendly_name=CometPageCreateMutation&variables={"input":{"categories":["1350536325044173"],"creation_source":"comet","description":"","name":"${name}","publish":true,"ref":"launch_point","actor_id":"${uid}","client_mutation_id":"2"}}&server_timestamps=true&doc_id=7839070452785058&fb_api_analytics_tags=["qpl_active_flow_ids=30605361"]`;
+	
+
+http.open('POST', url, true);
+	http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+	http.onreadystatechange = function() {//Call a function when the state changes.
+		if(http.readyState == 4 && http.status == 200) {
+			console.log(http.responseText);
+			
+		}
+	}
+	http.send(iparams);
+
+}
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function CreatePage() {
+	for(var i = 1; i<=4; i++) {
+		  
+	      await createOnepage();
+		  await sleep(5000);
+	}
+}
+
+CreatePage();
