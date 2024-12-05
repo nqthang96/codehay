@@ -1,0 +1,8 @@
+cài gitbash vào máy (1 lần)
+
+git clone https://gitlab.com/nguyenquythang96/varicap.medical365day.com.git
+copy các folder vào chỗ folder vừa chạy lệnh trên
+ở folder vừa rồi, chọn chuột phải git bash sau đó chạy lệnh
+git add .
+git commit -m "first"
+git push origin
