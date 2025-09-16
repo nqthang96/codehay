@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALT Input Translator Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.5;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"], select {
+            width: 300px;
+            padding: 6px;
+            margin-top: 4px;
+        }
+        button {
+            margin-top: 16px;
+            padding: 8px 16px;
+        }
+        #status {
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>ALT Input Translator Settings</h1>
+    <form id="settingsForm">
+        <label>
+            Google API Key:<br />
+            <input type="password" id="apiKey" autocomplete="off" placeholder="Enter your Google Cloud Translate API key" />
+        </label>
+        <label>
+            Target Language Code:<br />
+            <input type="text" id="targetLang" autocomplete="off" placeholder="en" style="width: 300px; padding: 6px; margin-top: 4px;" />
+            <small>Enter the target language code (e.g., <code>en</code> for English, <code>de</code> for German).</small>
+        </label>
+        <button type="submit">Save</button>
+    </form>
+    <div id="status"></div>
+    <script src="options.js"></script>
+</body>
+</html>
